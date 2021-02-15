@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CalenderActivity : MonoBehaviour
+public class CalenderActivity
 {
     public enum ActivityType {
         Work = 0, Doctor = 1, Shop = 2, Bank = 3,
@@ -25,5 +25,8 @@ public class CalenderActivity : MonoBehaviour
 
     public void SetMovement(int value){
         movement = (MovementType) value;
+    }
+
+    public CalenderActivity(){
     }
 }

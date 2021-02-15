@@ -33,4 +33,10 @@ public class TextLanguage : MonoBehaviour
     public void SetLanguage(){
         SetLanguage(TextLanguageManager.language);
     }
+
+    public void SetTo(TextLanguage other){
+        textGreek = other.textGreek;
+        textEnglish = other.textEnglish;
+        SetLanguage();
+    }
 }

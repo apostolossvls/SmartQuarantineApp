@@ -31,6 +31,10 @@ public class PanelManager : MonoBehaviour
             }
         }
 
+        if (index == 2){
+            OnlineHelp.targerID = 30;
+        } 
+
         panelIndex = index;
     }
     /*

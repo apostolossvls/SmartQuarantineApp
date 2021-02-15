@@ -11,16 +11,30 @@ public class CalenderDay : MonoBehaviour
     public int day;
     public int weekday;
     public List<CalenderActivity> activities;
+    public bool[] activitiesOn;
+    public bool[] coffee;
+    public string[] time;
+    public string[] transport;
+    public GameObject check;
 
     void Start(){
         calender = GetComponentInParent<Calender>();
+
+        activitiesOn = new bool[7];
+        coffee = new bool[7];
+        time = new string[7];
+        transport = new string[7];
+        for (int i = 0; i < activitiesOn.Length; i++)
+        {
+            activitiesOn[i] = false;
+        }
 
         if (dayText) dayText.text = day.ToString();
         if (descriptionText) descriptionText.text = "";
     }
 
     public void OnClick(){
-        print("click: "+name);
+        //print("click: "+name);
         calender.OpenDay(this);
     }
 }
