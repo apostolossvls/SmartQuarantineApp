@@ -11,7 +11,7 @@ public class HotkeyEndApplication : MonoBehaviour
     void Update()
     {
         //if ((Input.GetKey(key1_1) || Input.GetKeyUp(key1_2)) && (Input.GetKey(key2_1) || Input.GetKeyUp(key2_2)) && (Input.GetKey(key2_1) || Input.GetKeyUp(key3_2)))
-        if (Input.GetKey(KeyCode.Space) && Input.GetKeyUp(KeyCode.Escape))
+        if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.Space)) && Input.GetKeyUp(KeyCode.Escape))
         {
             ApplicationManager.ExitApplication();
         }

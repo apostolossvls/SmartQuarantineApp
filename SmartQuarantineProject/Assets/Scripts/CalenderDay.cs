@@ -14,16 +14,20 @@ public class CalenderDay : MonoBehaviour
     public bool[] activitiesOn;
     public bool[] coffee;
     public string[] time;
-    public string[] transport;
+    public string[] transportGreek;
+    public string[] transportEnglish;
     public GameObject check;
+    public bool isCompleted;
 
     void Start(){
         calender = GetComponentInParent<Calender>();
-
+        
+        isCompleted = false;
         activitiesOn = new bool[7];
         coffee = new bool[7];
         time = new string[7];
-        transport = new string[7];
+        transportGreek = new string[7];
+        transportEnglish = new string[7];
         for (int i = 0; i < activitiesOn.Length; i++)
         {
             activitiesOn[i] = false;

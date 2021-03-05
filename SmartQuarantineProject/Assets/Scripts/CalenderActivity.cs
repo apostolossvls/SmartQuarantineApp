@@ -10,7 +10,7 @@ public class CalenderActivity
     public enum MovementType {
         Car = 0, OnFoot = 1, PublicTransport};
     public ActivityType type;
-    public List<CalenderOrder> orders;
+    public bool coffeeOrder;
     public string time;
     public MovementType movement;
     public bool activated = false;

@@ -50,7 +50,7 @@ public class PanelManager : MonoBehaviour
     }
     */
 
-    IEnumerator CloseDoorDelay(){
+    public IEnumerator CloseDoorDelay(){
         yield return new WaitForSeconds(1.5f);
         if (doorAnimator) doorAnimator.SetBool("Open", false);
         yield return null;

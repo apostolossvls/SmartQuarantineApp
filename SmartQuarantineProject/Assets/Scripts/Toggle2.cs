@@ -5,7 +5,7 @@ using UnityEngine;
 public class Toggle2 : MonoBehaviour
 {
 
-    Animator animator;
+    public Animator animator;
     public bool isOn;
     
     void Start()
