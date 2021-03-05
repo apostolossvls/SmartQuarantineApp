@@ -10,6 +10,7 @@ public class OnlineShop : MonoBehaviour
     public GameObject[] panels;
     public OnlineShopItemWindow itemPopUp;
     public GameObject cartButton;
+    public TextMeshProUGUI totalPriceText;
     public GameObject signInW;
     public GameObject signUpW;
     public GameObject ckeckoutMessagePre, ckeckoutMessage, ckeckoutMessageError;
@@ -39,6 +40,9 @@ public class OnlineShop : MonoBehaviour
         {
             if (panels[i] != null) panels[i].SetActive(i == index);
         }
+        if (index == 5){
+            RefreshTotalPrice();
+        }
         cartButton.SetActive(index != 0 && index != 5);
         itemPopUp.Cancel();
     }
@@ -67,7 +71,14 @@ public class OnlineShop : MonoBehaviour
     }
 
     public void CheckOutPre(){
-        ckeckoutMessagePre.SetActive(true);
+        OnlineShopCartItem[] items = GetComponentsInChildren<OnlineShopCartItem>() as OnlineShopCartItem[];
+        if (items.Length > 0){
+            ckeckoutMessagePre.SetActive(true);
+        }
+        else {
+            ckeckoutMessageError.GetComponentInChildren<TextLanguage>().SetLanguage();
+            ckeckoutMessageError.GetComponent<Animator>().SetTrigger("Activate");
+        }
     }
 
     public void CheckOut(){
@@ -84,12 +95,31 @@ public class OnlineShop : MonoBehaviour
             OpenPanel(0);
         }
         else {
+            ckeckoutMessageError.GetComponentInChildren<TextLanguage>().SetLanguage();
             ckeckoutMessageError.GetComponent<Animator>().SetTrigger("Activate");
         }
     }
 
     public void CheckoutCancel(){
         ckeckoutMessagePre.SetActive(false);
+    }
+
+    public void RefreshTotalPrice(OnlineShopCartItem givenItem){
+        float total = GetTotal(givenItem);
+        totalPriceText.text = total.ToString("F2") + "€";
+    }
+    public void RefreshTotalPrice(){
+        RefreshTotalPrice(null);
+    }
+
+    float GetTotal(OnlineShopCartItem givenItem){
+        float total = 0;
+        OnlineShopCartItem[] items = GetComponentsInChildren<OnlineShopCartItem>() as OnlineShopCartItem[];
+        foreach (OnlineShopCartItem item in items)
+        {
+            if (item != givenItem)  total += item.price;
+        }
+        return total;
     }
     /*
     IEnumerator CheckOutCo(){

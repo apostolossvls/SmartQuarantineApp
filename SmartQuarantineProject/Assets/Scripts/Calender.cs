@@ -45,8 +45,8 @@ public class Calender : MonoBehaviour
 
         OpenPanel(0);
 
-        string newTextEnglish = ((Weekday)day.weekday).ToString() + " " + day.day + " February";
-        string newTextGreek = ((WeekdayGreek)day.weekday).ToString() + " " + day.day + " Φεβρουαρίου";
+        string newTextEnglish = ((Weekday)day.weekday).ToString() + " " + day.day + " March";
+        string newTextGreek = ((WeekdayGreek)day.weekday).ToString() + " " + day.day + " Μαρτίου";
 
         TextLanguage tl = cw1DayTitleText.GetComponent<TextLanguage>();
         tl.textGreek = newTextGreek;

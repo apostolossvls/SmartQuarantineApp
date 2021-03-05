@@ -27,10 +27,12 @@ public class OnlineHelp : MonoBehaviour
     }
 
     public void Open(){
+        Hotkey.isHelpOnlineOpen = true;
         window.SetActive(true);
     }
 
     public void Close(){
+        Hotkey.isHelpOnlineOpen = false;
         window.SetActive(false);
     }
 
