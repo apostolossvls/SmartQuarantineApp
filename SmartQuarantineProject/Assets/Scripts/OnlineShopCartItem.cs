@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
 using TMPro;
 
 public class OnlineShopCartItem : MonoBehaviour
@@ -24,7 +25,8 @@ public class OnlineShopCartItem : MonoBehaviour
         amount = cAmount;
         amountText.text = "X"+amount.ToString();
         string[] s1 = cPrice.Split(' ');
-        priceOne = float.Parse(s1[1].Substring(0, s1[1].Length - 1));
+        priceOne = 0;
+        float.TryParse(s1[1].Substring(0, s1[1].Length - 1), NumberStyles.Float , CultureInfo.InvariantCulture , out priceOne);
         priceOneText.text = priceOne.ToString("F2") + "€";
         price = amount * priceOne;
         priceText.text = price.ToString("F2") + "€";
